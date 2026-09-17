@@ -1,16 +1,45 @@
-# React + Vite
+# The Odin Project - CV Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple CV Builder made in React as part of the the odin project curriculum, the application takes the user data and generates a CV which they are able to print out as a pdf using the browers built in print screen feature.
 
-Currently, two official plugins are available:
+## Built With
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React - this app is built in react
+- ESLInt -  used for detecting issues in code 
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- [Node.js](https://nodejs.org/) and npm installed on your machine.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Septerm/top-cv-application.git
+
+# Navigate into the project
+cd top-cv-application
+
+# Install dependencies
+npm install
+```
+
+### Running the Development Server
+
+```bash
+npm run dev
+```
+
+This starts the Webpack dev server and serves the app locally (usually at `http://localhost:5173`), with live reloading as you edit.
+
+
+## Author
+
+**Garion Charles** — [GitHub](https://github.com/Septerm)
+
+## License
+
+This project is licensed under the ISC License.
+

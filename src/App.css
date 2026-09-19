@@ -96,6 +96,28 @@ form input:focus, form textarea:focus {
   color: white; 
 }
 
+
+.delSecBtn {
+  font-size: 1.6rem;
+  color: rgb(182, 3, 3);
+  transition: 1s ease-in-out;
+}
+
+.delSecBtn :hover {
+  transform: scale(0.97);
+}
+
+
+.createSecBtn span {
+  font-size: 2rem;
+  color: rgb(5, 116, 5);
+  transition: 0.1s ease-in;
+}
+
+.createSecBtn span:hover {
+  transform: scale(1.1);
+}
+
 dialog {
   margin: auto
 }

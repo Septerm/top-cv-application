@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-export default function Education({initialData}) {
+export default function Work({initialData}) {
 
 
     const [data, setData] = useState(initialData);
@@ -11,7 +11,7 @@ export default function Education({initialData}) {
 
         const {name, value} = event.target
 
-        const newEducation = data.education.map((item, i) => {
+        const newWork = data.work.map((item, i) => {
             if(i == index) {
                 return{...item, [name]: value}
             }
@@ -20,29 +20,29 @@ export default function Education({initialData}) {
 
         setData( (prev) => ({
             ...prev,
-            education: newEducation
+            work: newWork
         }) )
     }
 
 
 
-    function addEducation() {
+    function addWork() {
 
 
-        const newEducation = {school: "", degree: "", start:"", end:"",}
+        const newWork = {compnay: "", job: "", experience:"", description:"",}
 
         setData((prev) => ({
             ...prev,
-            education: [...prev.education, newEducation]
+            work: [...prev.education, newWork]
         }))
 
     }
 
-    function deleteEducation(index) {
+    function deleteWork(index) {
 
         setData((prev) => ({
             ...prev,
-            education: prev.education.filter((_, i) => i !== index)
+            work: prev.work.filter((_, i) => i !== index)
         }));
       
     }
@@ -52,11 +52,11 @@ export default function Education({initialData}) {
             return (
             <div style={{display:"flex", justifyContent:"end"}}>
                 <button
-                    aria-label= {`Deletes education section ${index + 1}`}
+                    aria-label= {`Deletes work section ${index + 1}`}
                     className="delSecBtn" 
                     style={{background: "none", border: "none", cursor:"pointer"}} 
                     type="button" 
-                    onClick={() => deleteEducation(index)}
+                    onClick={() => deleteWork(index)}
                 >
                     <span className="material-symbols-outlined">delete</span>
                 </button>
@@ -70,28 +70,28 @@ export default function Education({initialData}) {
 
         <>
 
-        {data.education.map((edu, index) => (
+        {data.work.map((com, index) => (
 
             <section key={index}>
-                <h3 style={{marginBottom:"1rem"}}>Education {index + 1}</h3>
+                <h3 style={{marginBottom:"1rem"}}>Work {index + 1}</h3>
 
                 <p className="form-group">
-                    <label htmlFor={"school"+ index + 1}>Collage Name</label>
-                    <input id={"school"+ index + 1} type="text" name="school" value={edu.school || ''} onChange={(e) => handleChange(e, index)} placeholder="Your University Name" required />                    
+                    <label htmlFor={"company"+ index + 1}>Company Name</label>
+                    <input id={"company"+ index + 1} type="text" name="company" value={com.company || ''} onChange={(e) => handleChange(e, index)} placeholder="Google" required />                    
                 </p>
 
                 <p className="form-group">
-                    <label htmlFor={"degree"+ index + 1}>Degree</label>
-                    <input id={"degree"+ index + 1} type="text" name="degree" value={edu.degree || ''} onChange={(e) => handleChange(e, index)} placeholder="Bsc Computer Science" required />                    
+                    <label htmlFor={"job"+ index + 1}>Job Title</label>
+                    <input id={"job"+ index + 1} type="text" name="job" value={com.job || ''} onChange={(e) => handleChange(e, index)} placeholder="Software Engineer" required />                    
                 </p>
 
                 <p className="form-group">
-                    <label htmlFor={"start"+ index + 1}>Study Start Date</label>
-                    <input id={"start"+ index + 1} type="date" name="start" value={edu.start || ''} onChange={(e) => handleChange(e, index)} required />                    
+                    <label htmlFor={"experience"+ index + 1}>Duration</label>
+                    <input id={"experience"+ index + 1} type="text" name="experience" value={com.experience || ''} onChange={(e) => handleChange(e, index)} placeholder="2 Years" required />                    
                 </p>
                 <p className="form-group">
-                    <label htmlFor={"end"+ index + 1}>Study End Date</label>
-                    <input id={"end"+ index + 1} type="date" name="end" value={edu.end || ''} onChange={(e) => handleChange(e, index)} required />                    
+                    <label htmlFor={"description"+ index + 1}>Duties</label>
+                    <textarea id={"description"+ index + 1} type="text" name="end" value={com.description || ''} onChange={(e) => handleChange(e, index)} placeholder="Add your job duties" required />                    
                 </p>
 
 
@@ -106,11 +106,11 @@ export default function Education({initialData}) {
 
         <div style={{display:"flex", justifyContent:"center", marginBottom:"1rem"}}>
             <button
-                aria-label= {`Creates a new education section`}
+                aria-label= {`Creates a new work section`}
                 className="createSecBtn"
                 style={{background:"none", border:"none", cursor:"pointer"}}
                 type="button" 
-                onClick={addEducation}
+                onClick={addWork}
             >
                 <span class="material-symbols-outlined">add_circle</span>
             </button>

@@ -5,6 +5,6 @@ import Education from './Education.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Education/>
+    <App/>
   </StrictMode>,
 )

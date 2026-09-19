@@ -43,3 +43,4 @@ This starts the Webpack dev server and serves the app locally (usually at `http:
 
 This project is licensed under the ISC License.
 
+<span class="material-symbols-outlined">add_circle</span>

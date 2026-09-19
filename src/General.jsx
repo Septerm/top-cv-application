@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function General({initialData}) {
+export default function General({initialData , handleFormData}) {
 
 
     const [data, setData] = useState(initialData);
@@ -11,6 +11,8 @@ export default function General({initialData}) {
             ...prev,
             [name]: value
         }))
+
+        handleFormData(data)
     }
 
 

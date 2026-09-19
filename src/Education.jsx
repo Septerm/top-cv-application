@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-export default function Education({initialData}) {
+export default function Education({initialData,handleFormData}) {
 
 
     const [data, setData] = useState(initialData);
@@ -22,6 +22,8 @@ export default function Education({initialData}) {
             ...prev,
             education: newEducation
         }) )
+
+        handleFormData(data)
     }
 
 
@@ -36,6 +38,8 @@ export default function Education({initialData}) {
             education: [...prev.education, newEducation]
         }))
 
+        handleFormData(data)
+
     }
 
     function deleteEducation(index) {
@@ -44,6 +48,8 @@ export default function Education({initialData}) {
             ...prev,
             education: prev.education.filter((_, i) => i !== index)
         }));
+
+        handleFormData(data)
       
     }
 
@@ -112,7 +118,7 @@ export default function Education({initialData}) {
                 type="button" 
                 onClick={addEducation}
             >
-                <span class="material-symbols-outlined">add_circle</span>
+                <span className="material-symbols-outlined">add_circle</span>
             </button>
         </div>
 

@@ -4,25 +4,36 @@ import Form from './Form.jsx'
 import Nav from './Nav.jsx'
 import Modal from './Modal.jsx'
 import Footer from './Footer.jsx'
+import Preview from './Preview.jsx'
 
 function App() {
 
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    summary:"",
-    school: "",
-    degree: "",
-    start: "",
-    end: "",
-    company: "",
-    job: "",
-    experience: "",
-    description:"",
+  const [formData, setFormData] = useState(
+    {
+      name: "",
+      email:"",
+      phone: "",
+      summary: "",
+      education: [
 
-  });
+        {
+          school: "",
+          degree: "",
+          start: "",
+          end: "",
+        }
+      ],
+      work: [
+        {
+          company: "",
+          job: "",
+          experience:"",
+          description:"",
+        }
+      ],
+    }
+  );
 
 
 
@@ -44,7 +55,9 @@ return (
   <div className='container'>
     <Nav/>
     <Form initialData={formData} onFormSubmit={handleFormSubmit} modalOpener={openModal} />
-    <Modal formData={formData} modalHandler={dialogRef} modalCloser={closeModal}/>
+    {/* <Modal formData={formData} modalHandler={dialogRef} modalCloser={closeModal}/> */}
+    <Preview preData={formData} />
+    
     <Footer/>
   </div>
 )

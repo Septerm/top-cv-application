@@ -8,35 +8,11 @@ export default function Form({initialData, onFormSubmit, modalOpener}) {
 
     const [inputs, setInputs] = useState(initialData);
 
+
     const handleSubmit = (event) => {
         event.preventDefault();
         onFormSubmit(inputs)
         modalOpener()
-    }
-
-
-    const dummyData = {
-        name: "",
-        email:"",
-        phone: "",
-        summary: "",
-        education: [
-
-            {
-                school: "",
-                degree: "",
-                start: "",
-                end: "",
-            }
-        ],
-        work: [
-            {
-                company: "",
-                job: "",
-                experience:"",
-                description:"",
-            }
-        ],
     }
 
     return (
@@ -46,17 +22,17 @@ export default function Form({initialData, onFormSubmit, modalOpener}) {
                 <section>
                     <h2>General Information</h2>
 
-                    <General initialData={dummyData}/>
+                    <General initialData={inputs} handleFormData={setInputs}/>
                 </section>
 
                 <section>
                     <h2>Educational Information</h2>
-                    <Education initialData={dummyData}/>
+                    <Education initialData={inputs} handleFormData={setInputs}/>
                 </section>
 
                 <section>
                     <h2>Work Experience</h2>
-                    <Work initialData={dummyData}/>
+                    <Work initialData={inputs} handleFormData={setInputs}/>
                 </section>     
 
                 <div className="submit-box">

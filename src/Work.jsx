@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-export default function Work({initialData}) {
+export default function Work({initialData, handleFormData}) {
 
 
     const [data, setData] = useState(initialData);
@@ -22,6 +22,8 @@ export default function Work({initialData}) {
             ...prev,
             work: newWork
         }) )
+
+        handleFormData(data)
     }
 
 
@@ -33,8 +35,10 @@ export default function Work({initialData}) {
 
         setData((prev) => ({
             ...prev,
-            work: [...prev.education, newWork]
+            work: [...prev.work, newWork]
         }))
+
+        handleFormData(data)
 
     }
 
@@ -44,25 +48,27 @@ export default function Work({initialData}) {
             ...prev,
             work: prev.work.filter((_, i) => i !== index)
         }));
+
+        handleFormData(data)
       
     }
 
     function deleteButton(index) {
         if(index > 0) {
             return (
-            <div style={{display:"flex", justifyContent:"end"}}>
-                <button
-                    aria-label= {`Deletes work section ${index + 1}`}
-                    className="delSecBtn" 
-                    style={{background: "none", border: "none", cursor:"pointer"}} 
-                    type="button" 
-                    onClick={() => deleteWork(index)}
-                >
-                    <span className="material-symbols-outlined">delete</span>
-                </button>
-            </div>
+                <div style={{display:"flex", justifyContent:"end"}}>
+                    <button
+                        aria-label= {`Deletes work section ${index + 1}`}
+                        className="delSecBtn" 
+                        style={{background: "none", border: "none", cursor:"pointer"}} 
+                        type="button" 
+                        onClick={() => deleteWork(index)}
+                    >
+                        <span className="material-symbols-outlined">delete</span>
+                    </button>
+                </div>
             
-        )
+            )
         }
     }
 
@@ -112,7 +118,7 @@ export default function Work({initialData}) {
                 type="button" 
                 onClick={addWork}
             >
-                <span class="material-symbols-outlined">add_circle</span>
+                <span className="material-symbols-outlined">add_circle</span>
             </button>
         </div>
 

@@ -14,6 +14,7 @@ function App() {
       name: "",
       email:"",
       phone: "",
+      location: "",
       summary: "",
       education: [
 
@@ -28,12 +29,16 @@ function App() {
         {
           company: "",
           job: "",
-          experience:"",
+          workStart: "",
+          workEnd: "",
           description:"",
         }
       ],
     }
   );
+
+
+  const [isEdit, setIsEdit] = useState(false);
 
 
 
@@ -54,9 +59,10 @@ function App() {
 return (
   <div className='container'>
     <Nav/>
-    <Form initialData={formData} onFormSubmit={handleFormSubmit} modalOpener={openModal} />
+    {isEdit ? <Form initialData={formData} onFormSubmit={handleFormSubmit} previewHandler={setIsEdit}/> : <Preview preData={formData} previewHandler={setIsEdit} />}
+    {/* <Form initialData={formData} onFormSubmit={handleFormSubmit} modalOpener={openModal} /> */}
     {/* <Modal formData={formData} modalHandler={dialogRef} modalCloser={closeModal}/> */}
-    <Preview preData={formData} />
+    {/* <Preview preData={formData} /> */}
     
     <Footer/>
   </div>

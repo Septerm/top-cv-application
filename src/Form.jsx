@@ -4,7 +4,7 @@ import Work from "./Work";
 import General from "./General";
 
 
-export default function Form({initialData, onFormSubmit, modalOpener}) {
+export default function Form({initialData, onFormSubmit , previewHandler}) {
 
     const [inputs, setInputs] = useState(initialData);
 
@@ -12,7 +12,7 @@ export default function Form({initialData, onFormSubmit, modalOpener}) {
     const handleSubmit = (event) => {
         event.preventDefault();
         onFormSubmit(inputs)
-        modalOpener()
+        previewHandler(false)
     }
 
     return (
@@ -21,19 +21,18 @@ export default function Form({initialData, onFormSubmit, modalOpener}) {
 
                 <section>
                     <h2>General Information</h2>
-
                     <General initialData={inputs} handleFormData={setInputs}/>
                 </section>
 
                 <section>
                     <h2>Educational Information</h2>
                     <Education initialData={inputs} handleFormData={setInputs}/>
-                </section>
+                </section>    
 
                 <section>
                     <h2>Work Experience</h2>
                     <Work initialData={inputs} handleFormData={setInputs}/>
-                </section>     
+                </section> 
 
                 <div className="submit-box">
                     <button type="submit" >Generate CV</button>

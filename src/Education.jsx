@@ -23,7 +23,12 @@ export default function Education({initialData,handleFormData}) {
             education: newEducation
         }) )
 
-        handleFormData(data)
+        handleFormData( (prev) => ({
+            ...prev,
+            education: newEducation
+        }) )
+
+       
     }
 
 
@@ -38,7 +43,12 @@ export default function Education({initialData,handleFormData}) {
             education: [...prev.education, newEducation]
         }))
 
-        handleFormData(data)
+        handleFormData((prev) => ({
+            ...prev,
+            education: [...prev.education, newEducation]
+        }))
+
+       
 
     }
 
@@ -49,7 +59,12 @@ export default function Education({initialData,handleFormData}) {
             education: prev.education.filter((_, i) => i !== index)
         }));
 
-        handleFormData(data)
+        handleFormData((prev) => ({
+            ...prev,
+            education: prev.education.filter((_, i) => i !== index)
+        }));
+
+        
       
     }
 
@@ -82,22 +97,22 @@ export default function Education({initialData,handleFormData}) {
                 <h3 style={{marginBottom:"1rem"}}>Education {index + 1}</h3>
 
                 <p className="form-group">
-                    <label htmlFor={"school"+ index + 1}>Collage Name</label>
+                    <label htmlFor={"school"+ index + 1}>Institution Name</label>
                     <input id={"school"+ index + 1} type="text" name="school" value={edu.school || ''} onChange={(e) => handleChange(e, index)} placeholder="Your University Name" required />                    
                 </p>
 
                 <p className="form-group">
-                    <label htmlFor={"degree"+ index + 1}>Degree</label>
+                    <label htmlFor={"degree"+ index + 1}>Programme</label>
                     <input id={"degree"+ index + 1} type="text" name="degree" value={edu.degree || ''} onChange={(e) => handleChange(e, index)} placeholder="Bsc Computer Science" required />                    
                 </p>
 
                 <p className="form-group">
-                    <label htmlFor={"start"+ index + 1}>Study Start Date</label>
+                    <label htmlFor={"start"+ index + 1}>Start date</label>
                     <input id={"start"+ index + 1} type="date" name="start" value={edu.start || ''} onChange={(e) => handleChange(e, index)} required />                    
                 </p>
                 <p className="form-group">
-                    <label htmlFor={"end"+ index + 1}>Study End Date</label>
-                    <input id={"end"+ index + 1} type="date" name="end" value={edu.end || ''} onChange={(e) => handleChange(e, index)} required />                    
+                    <label htmlFor={"end"+ index + 1}>End Date (Leave blank if not finish)</label>
+                    <input id={"end"+ index + 1} type="date" name="end" value={edu.end || ''} onChange={(e) => handleChange(e, index)}/>                    
                 </p>
 
 

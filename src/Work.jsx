@@ -23,7 +23,12 @@ export default function Work({initialData, handleFormData}) {
             work: newWork
         }) )
 
-        handleFormData(data)
+        handleFormData( (prev) => ({
+            ...prev,
+            work: newWork
+        }) )
+
+        
     }
 
 
@@ -31,14 +36,19 @@ export default function Work({initialData, handleFormData}) {
     function addWork() {
 
 
-        const newWork = {compnay: "", job: "", experience:"", description:"",}
+        const newWork = {compnay: "", job: "", description:"", workStart: "", workEnd: "",}
 
         setData((prev) => ({
             ...prev,
             work: [...prev.work, newWork]
         }))
 
-        handleFormData(data)
+        handleFormData((prev) => ({
+            ...prev,
+            work: [...prev.work, newWork]
+        }))
+
+        
 
     }
 
@@ -49,7 +59,12 @@ export default function Work({initialData, handleFormData}) {
             work: prev.work.filter((_, i) => i !== index)
         }));
 
-        handleFormData(data)
+        handleFormData((prev) => ({
+            ...prev,
+            work: prev.work.filter((_, i) => i !== index)
+        }));
+
+        
       
     }
 
@@ -83,7 +98,7 @@ export default function Work({initialData, handleFormData}) {
 
                 <p className="form-group">
                     <label htmlFor={"company"+ index + 1}>Company Name</label>
-                    <input id={"company"+ index + 1} type="text" name="company" value={com.company || ''} onChange={(e) => handleChange(e, index)} placeholder="Google" required />                    
+                    <input id={"company"+ index + 1} type="text" name="company" value={com.company || ''} onChange={(e) => handleChange(e, index)} placeholder="Name of company" autoComplete="organization" required />                    
                 </p>
 
                 <p className="form-group">
@@ -92,12 +107,19 @@ export default function Work({initialData, handleFormData}) {
                 </p>
 
                 <p className="form-group">
-                    <label htmlFor={"experience"+ index + 1}>Duration</label>
-                    <input id={"experience"+ index + 1} type="text" name="experience" value={com.experience || ''} onChange={(e) => handleChange(e, index)} placeholder="2 Years" required />                    
+                    <label htmlFor={"workStart"+ index + 1}>Start Date</label>
+                    <input id={"workStart"+ index + 1} type="date" name="workStart" value={com.workStart || ''} onChange={(e) => handleChange(e, index)} required />                    
                 </p>
+
+                <p className="form-group">
+                    <label htmlFor={"workEnd"+ index + 1}>End Date (Leave blank if current)</label>
+                    <input id={"workEnd"+ index + 1} type="date" name="workEnd" value={com.workEnd || ''} onChange={(e) => handleChange(e, index)}/>                    
+                </p>
+
+
                 <p className="form-group">
                     <label htmlFor={"description"+ index + 1}>Duties</label>
-                    <textarea id={"description"+ index + 1} type="text" name="end" value={com.description || ''} onChange={(e) => handleChange(e, index)} placeholder="Add your job duties" required />                    
+                    <textarea id={"description"+ index + 1} type="text" name="description" value={com.description || ''} onChange={(e) => handleChange(e, index)} placeholder="Add your job duties" required />                    
                 </p>
 
 

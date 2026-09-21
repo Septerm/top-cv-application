@@ -67,7 +67,7 @@ export default function Skills({initialData, handleFormData}) {
 
                 <p className="form-group">
                     <label htmlFor={`skill-${index + 1}`}>Skill {index + 1}</label>
-                    <input id={`skill-${index + 1}`} type="text" name="skill" value={skill || ''}  onChange={(e) => handleChange(e, index)} required />
+                    <input id={`skill-${index + 1}`} type="text" name="skill" value={skill || ''}  onChange={(e) => handleChange(e, index)} placeholder="Add a skill" required />
                 </p>
 
                 {deleteButton(index)}

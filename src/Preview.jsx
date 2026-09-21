@@ -1,4 +1,6 @@
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useState } from "react";
+import Resume from "./Resume";
 
 export default function Preview({preData, previewHandler}) {
 
@@ -29,6 +31,24 @@ export default function Preview({preData, previewHandler}) {
         <main>
             <div className="previewControl">
                 <button type="button" onClick={()=> previewHandler(true)}>Edit</button>
+                <PDFDownloadLink
+
+
+                    document={<Resume data={data} paint={paint} />}
+                    fileName={`${data.name || "Resume"}.pdf`}
+                    style={{ textDecoration: "none" }} // Removes link underline
+                
+                >
+                    {({ loading, error }) => (
+                        <button
+                            type="button"
+                            disabled={loading}
+                        >
+                            {loading ? "Preparing PDF..." : "Download PDF"}
+                        </button>
+                    )}
+
+                </PDFDownloadLink>
                 <input type="color" value={paint} onChange={handlePaint} />
             </div>
             <section className="preview">
@@ -71,10 +91,10 @@ export default function Preview({preData, previewHandler}) {
                         <section style={{marginBottom:"1rem"}} key={index}>
                             <div  className="job">
                                 <p><span style={{fontWeight:"bold", color:cvStyle.color}}>{item.job}</span>, {item.company}</p> 
-                                <p>({item.workStart} - {item.workEnd || "Present"})</p>
+                                <p>({item.workStart} - {item.workEnd || "Present"})</p>    
                             </div >
 
-                            <p>
+                            <p style={{textAlign:"justify"}}>
                                 {item.description}
                             </p>
                             
@@ -88,8 +108,9 @@ export default function Preview({preData, previewHandler}) {
                     
                     {data.education.map((edu, index) => (
                         <section style={{marginBottom:"1rem"}} key={index}>
+                            
+                            <div><span style={{fontWeight:"bold", color:cvStyle.color}}>{edu.degree}</span>, {edu.school}</div> 
                             <div>{edu.start} - {edu.end || "In Progress"}</div>
-                        <div><span style={{fontWeight:"bold", color:cvStyle.color}}>{edu.degree}</span>, {edu.school}</div> 
                         </section>
                     ))}
                     

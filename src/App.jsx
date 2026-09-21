@@ -34,11 +34,12 @@ function App() {
           description:"",
         }
       ],
+      skills: [""]
     }
   );
 
 
-  const [isEdit, setIsEdit] = useState(false);
+  const [isEdit, setIsEdit] = useState(true);
 
 
 

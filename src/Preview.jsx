@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function Preview({preData, previewHandler}) {
 
-  const data = preData;
+    const data = preData;
 
 
     const [paint , setPaint] = useState("rgb(202, 112, 28)")
@@ -13,6 +13,15 @@ export default function Preview({preData, previewHandler}) {
 
     function handlePaint(e) {
         setPaint(e.target.value)
+    }
+
+    const skillStyles = {
+
+        columnCount: "3",
+        columnGap: "20px",
+        padding: 0,
+        listStylePosition: "inside"
+
     }
 
     return(
@@ -37,7 +46,25 @@ export default function Preview({preData, previewHandler}) {
                     <p>{data.summary}</p>
                 </section>
 
-                <section className="work">
+                <section className="skills">
+
+                    <h2 style={{marginBottom:"1rem", color: cvStyle.color, borderBottom: "solid 1px black", paddingBottom:"0.2rem"}}>Skills</h2>
+
+
+                    <ul style={skillStyles}>
+
+                        {data.skills.map((item, index) => (
+
+                            <li style={{listStyle:"none"}} key={index}>{item}</li>
+                        
+                        ))}
+
+                    </ul>
+                    
+
+                </section>
+
+                <section className="work" >
                     <h2 style={{marginBottom:"1rem", color: cvStyle.color, borderBottom: "solid 1px black", paddingBottom:"0.2rem"}}>Work History</h2>
                     
                     {data.work.map((item, index) => (

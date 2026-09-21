@@ -97,29 +97,29 @@ export default function Work({initialData, handleFormData}) {
                 <h3 style={{marginBottom:"1rem"}}>Work {index + 1}</h3>
 
                 <p className="form-group">
-                    <label htmlFor={"company"+ index + 1}>Company Name</label>
-                    <input id={"company"+ index + 1} type="text" name="company" value={com.company || ''} onChange={(e) => handleChange(e, index)} placeholder="Name of company" autoComplete="organization" required />                    
+                    <label htmlFor={`company-${index + 1}`}>Company Name</label>
+                    <input id={`company-${index + 1}`} type="text" name="company" value={com.company || ''} onChange={(e) => handleChange(e, index)} placeholder="Name of company" autoComplete="organization" required />                    
                 </p>
 
                 <p className="form-group">
-                    <label htmlFor={"job"+ index + 1}>Job Title</label>
-                    <input id={"job"+ index + 1} type="text" name="job" value={com.job || ''} onChange={(e) => handleChange(e, index)} placeholder="Software Engineer" required />                    
+                    <label htmlFor={`job-${index + 1}`}>Job Title</label>
+                    <input id={`job-${index + 1}`} type="text" name="job" value={com.job || ''} onChange={(e) => handleChange(e, index)} placeholder="Software Engineer" required />                    
                 </p>
 
                 <p className="form-group">
-                    <label htmlFor={"workStart"+ index + 1}>Start Date</label>
-                    <input id={"workStart"+ index + 1} type="date" name="workStart" value={com.workStart || ''} onChange={(e) => handleChange(e, index)} required />                    
+                    <label htmlFor={`workStart-${index + 1}`}>Start Date</label>
+                    <input id={`workStart-${index + 1}`} type="date" name="workStart" value={com.workStart || ''} onChange={(e) => handleChange(e, index)} required />                    
                 </p>
 
                 <p className="form-group">
-                    <label htmlFor={"workEnd"+ index + 1}>End Date (Leave blank if current)</label>
-                    <input id={"workEnd"+ index + 1} type="date" name="workEnd" value={com.workEnd || ''} onChange={(e) => handleChange(e, index)}/>                    
+                    <label htmlFor={`workEnd-${index + 1}`}>End Date (Leave blank if current)</label>
+                    <input id={`workEnd-${index + 1}`} type="date" name="workEnd" value={com.workEnd || ''} onChange={(e) => handleChange(e, index)}/>                    
                 </p>
 
 
                 <p className="form-group">
-                    <label htmlFor={"description"+ index + 1}>Duties</label>
-                    <textarea id={"description"+ index + 1} type="text" name="description" value={com.description || ''} onChange={(e) => handleChange(e, index)} placeholder="Add your job duties" required />                    
+                    <label htmlFor={`description-${index + 1}`}>Duties</label>
+                    <textarea id={`description-${index + 1}`} type="text" name="description" value={com.description || ''} onChange={(e) => handleChange(e, index)} placeholder="Add your job duties" required />                    
                 </p>
 
 

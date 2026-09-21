@@ -2,6 +2,7 @@ import { useState } from "react"
 import Education from "./Education";
 import Work from "./Work";
 import General from "./General";
+import Skills from "./Skills";
 
 
 export default function Form({initialData, onFormSubmit , previewHandler}) {
@@ -33,6 +34,11 @@ export default function Form({initialData, onFormSubmit , previewHandler}) {
                     <h2>Work Experience</h2>
                     <Work initialData={inputs} handleFormData={setInputs}/>
                 </section> 
+
+                <section>
+                    <h2>Skills</h2>
+                    <Skills initialData={inputs} handleFormData={setInputs}/>
+                </section>
 
                 <div className="submit-box">
                     <button type="submit" >Generate CV</button>

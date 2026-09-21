@@ -1,10 +1,11 @@
 # The Odin Project - CV Builder
 
-A simple CV Builder made in React as part of the the odin project curriculum, the application takes the user data and generates a CV which they are able to print out as a pdf using the browers built in print screen feature.
+A simple CV Builder made in React as part of the the odin project curriculum, the application takes the user data and generates a CV which they are able to download  as pdf using the react-pdf.
 
 ## Built With
 
 - React - this app is built in react
+- react-pdf - used for creating a pdf of the generated cv
 - ESLInt -  used for detecting issues in code 
 
 ## Getting Started
